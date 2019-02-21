@@ -1,0 +1,22 @@
+<template>
+  <require from="../styles/contacts.css"></require>
+  <div class="contacts">
+    <h2>Contact List</h2>
+    <ul class="contact-list">
+      <li repeat.for="contact of contacts" class="contacts-item ${contact.id === $parent.selectedId ? 'active' : ''}">
+        <h3 class="contacts-item-name">${contact.firstName} ${contact.lastName}</h3>
+        <p class="contacts-item-text">Email: ${contact.email}</p>
+        <p class="contacts-item-text">Phone number: ${contact.phoneNumber}</p>
+        <a class="contacts-item-edit" route-href="route: ContactDetail; params.bind: {id:contact.id}" click.delegate="$parent.select(contact)">
+          <i class="fas fa-edit"></i>
+          <small>Edit</small>
+        </a>
+        <a click.delegate="$parent.remove(contact)" href="#" class="contacts-item-remove">
+          <i class="fas fa-trash"></i>
+          <small>Remove</small>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <a route-href="route: home;" class="contacts-return"><i class="fas fa-chevron-left"></i> Home</a>
+</template>

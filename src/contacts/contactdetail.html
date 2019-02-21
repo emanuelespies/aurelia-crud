@@ -1,0 +1,44 @@
+<template>
+  <require from="../styles/contacts.css"></require>
+  <require from="../styles/contactdetail.css"></require>
+  <div class="contacts">
+    <h2>Profile</h2>
+    <form role="form" class="contacts-form">
+      <div class="contacts-form-item">
+        <label>First Name
+          <input type="text" placeholder="first name" value.bind="activeContact.firstName">
+        </label>
+      </div>
+
+      <div class="contacts-form-item">
+        <label>Last Name
+          <input type="text" placeholder="last name" value.bind="activeContact.lastName">
+        </label>
+      </div>
+
+      <div class="contacts-form-item">
+        <label>Email
+          <input type="text" placeholder="email" value.bind="activeContact.email">
+        </label>
+      </div>
+
+      <div class="contacts-form-item">
+        <label>Phone Number
+          <input type="text" placeholder="phone number" value.bind="activeContact.phoneNumber">
+        </label>
+      </div>
+    </form>
+    <div class="contacts-button">
+        <button click.delegate="save()" disabled.bind="!canSave" class="contacts-save">
+          <i class="fas fa-save"></i>
+          Save
+        </button>
+        <a class="contacts-cancel" href="#" route-href="route: contacts;" disabled.bind="!canSave">Cancel</a>
+    </div>
+  </div>
+
+  <a route-href="route: home;" class="contacts-return"><i class="fas fa-chevron-left"></i> Home</a>
+</template>
+      
+    
+      
